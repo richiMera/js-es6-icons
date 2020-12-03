@@ -7,6 +7,12 @@
 // literal, visualizzare in pagina tutte le icone con il
 // proprio nome.
 
+// milestone 2:
+// definire un array di colori e associare ad ogni
+// tipo di icona un colore.
+// Visualizzare le icone di colore diverso in base al
+// tipo.
+
 
 $(document).ready(
   function() {
@@ -113,26 +119,46 @@ $(document).ready(
 
     const iconsContainer = $(".icons_container");
 
-
     onPageIcons(icons, iconsContainer);
 
+    const arrayColor = [
+      "blu",
+      "red",
+      "orange"
+    ];
+    // console.log(icons);
+    typeFunction(icons);
+    console.log(typeFunction(icons));
   }
 );
 
 function onPageIcons (array, container) {
   // container.html() = "";
 
-
   array.forEach(
     (element) => {
       const {family, prefix, name} = element;
       container.append(
         `<div class="icons_box">
-            <i class="${family} ${prefix}${name}"></i>
-            <h3>${name}</h3>
-          </div>`
-        );
+        <i class="${family} ${prefix}${name}"></i>
+        <h3>${name}</h3>
+        </div>`
+      );
+    });
 
-      });
+  };
 
-    };
+  function typeFunction (array) {
+    const newArray = [];
+
+    array.forEach(
+      (element) => {
+        if(newArray.includes(element.type)== false) {
+            newArray.push(element.type);
+        }
+
+
+    });
+
+    return newArray;
+  }
