@@ -128,10 +128,11 @@ function onPageIcons (array, container) {
       const {family, prefix, name} = element;
       container.append(
         `<div class="icons_box">
-          <i class="${family} ${prefix}${name}"></i>
+            <i class="${family} ${prefix}${name}"></i>
+            <h3>${name}</h3>
           </div>`
         );
 
-    });
+      });
 
-  };
+    };
