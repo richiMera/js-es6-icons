@@ -127,8 +127,17 @@ $(document).ready(
       "orange"
     ];
     // console.log(icons);
-    typeFunction(icons);
-    console.log(typeFunction(icons));
+    const arrayType = typeFunction(icons);
+
+    // colorAssignation(icons);
+    console.log(colorAssignation(icons));
+
+    // icons.forEach(
+    //   (element) => {
+    //     arrayColor
+    // });
+    console.log(colorAssignation(icons,arrayColor,arrayType));
+
   }
 );
 
@@ -148,7 +157,7 @@ function onPageIcons (array, container) {
 
   };
 
-  function typeFunction (array) {
+function typeFunction (array) {
     const newArray = [];
 
     array.forEach(
@@ -156,9 +165,30 @@ function onPageIcons (array, container) {
         if(newArray.includes(element.type)== false) {
             newArray.push(element.type);
         }
+      });
 
+      return newArray;
+    }
 
-    });
+function colorAssignation (array) {
+  const newArray = array.map(
+    (element) => {
+      const newElement = {
+        ...element,
+          color: "blu"
+        };
+        // console.log(newElement);
+        return newElement;
+  });
+  return newArray;
+  // console.log(newArray);
 
-    return newArray;
-  }
+}
+
+// function colorForEach (arrayColors,arrayType,arrayIcons) {
+//   forEach(
+//     (element) => {
+//     arrayColors[arrayType[element.type]]
+//   });
+//
+// }
